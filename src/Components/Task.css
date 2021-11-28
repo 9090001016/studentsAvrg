@@ -42,6 +42,15 @@
   h1{
       font-size: 1rem;
   } */
-  @media screen {
+  @media (max-width: 468px) {
+      .percentage_box input{
+          width: 200px;
+      }
+      h3{
+          font-size: 20px;
+      }
+      h1{
+          font-size: 12px;
+      }
       
   }
