@@ -1,0 +1,47 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* html{
+      font-size: 62.5%;
+  } */
+  .main_container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: palevioletred;
+  }
+  .sub_container{
+    width: 80vw;
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+  }
+   /* .percentage_box{
+      display: flex;
+      flex-direction: column;
+  } */
+  .percentage_box input{
+      margin:0.3rem;
+      width: 30rem;
+  }
+  .first_box button{
+      margin: 0.5rem;
+      width: 13rem;
+  } 
+  /* h3{
+      font-size: 1rem;
+  }
+  h1{
+      font-size: 1rem;
+  } */
+  @media screen {
+      
+  }
