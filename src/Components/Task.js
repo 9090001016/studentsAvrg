@@ -19,6 +19,7 @@ const Task = () => {
             return (
                 items.id === id
             )
+            
         })
         // console.log(matchId)
         // console.log(id);
@@ -35,7 +36,7 @@ const Task = () => {
                     <div className="mt-8 first_box">
                         <h3 for="exampleFormControlInput1" className="form-label">Student Id</h3>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="EnterID" value={enterId} onChange={(e) => setEnterId(e.target.value)} />
+                            placeholder="EnterID between 1 to 14" value={enterId} onChange={(e) => setEnterId(e.target.value)} />
                         <button type="button" class="btn btn-secondary" onClick={getData}>Get Data From Server</button>
                     </div>
                     <div className="percentage_box">
