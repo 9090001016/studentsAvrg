@@ -1,33 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import './Task.css';
 import data from '../data';
+// import "../data.json";
 
 const Task = () => {
     const [marks, setMarks] = useState(data);
     const [enterId, setEnterId] = useState();
     const [totalMark, setTotal] = useState(Number);
+    const [changed, setChanged] = useState("");
 
     useEffect(() => {
         setMarks(data);
-    }, [enterId])
+    }, [enterId,changed])
 
-    
-    console.log(data);
+
+  
+
     const getData = () => {
         const id = parseInt(enterId);
         const matchId = marks.find((items) => {
             return (
                 items.id === id
             )
-            
+
         })
-        // console.log(matchId)
-        // console.log(id);
         setEnterId("");
         setMarks(matchId);
+        
         setTotal(matchId.biology / 5 + matchId.chemistry / 5 + matchId.english / 5 + matchId.physics / 5 + matchId.maths / 5);
         
+        switch(totalMark){
+            case totalMark>=90 :
+                setChanged("bg-success");
+                break;
+            case totalMark >=70 && totalMark <=89 :
+                setChanged("bg-primary");
+                break;
+            case totalMark >=30 && totalMark <=69 :
+                setChanged("bg-warning");
+                break;
+            case totalMark <30 :
+                setChanged("bg-danger")
+                break;
+                default:
+                setChanged("");
+        }
     }
+    console.log(changed);
+
     return (
         <div>
             <div className="main_container">
@@ -46,12 +66,20 @@ const Task = () => {
                         <input type="text" className="form-control" value={marks.physics} placeholder="marks in Physics" />
                         <input type="text" className="form-control" value={marks.chemistry} placeholder="marks in Chemistry" />
                         <input type="text" className="form-control" value={marks.english} placeholder="marks in English" />
+                        {/* <input type="text" className="form-control" value={marks.computer} placeholder="marks in English" /> */}
+
                     </div>
                     <div className="total_percentage">
                         <h3>Total Percentage</h3>
                         <h4>{totalMark} {`%`}</h4>
 
-                        { totalMark >= 90 ?
+                        <div className="progress">
+                            <div className={`progress-bar ${changed}`} style={{ width: totalMark + '%' }}>
+                                {totalMark} 
+                            </div>
+                        </div>
+
+                        {/* { totalMark >= 90 ?
                         <div className="progress">
                         <div className="progress-bar bg-success" style={{width:totalMark + '%'}}>
                         {totalMark} {`success`}
@@ -74,7 +102,7 @@ const Task = () => {
                         </div>
                         </div>  
                         : null
-                        }
+                        } */}
                     </div>
                 </div>
             </div>
